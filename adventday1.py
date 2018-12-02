@@ -2,37 +2,27 @@
 # Elisha Chen
 # 12/1/18
 
-"""Read txt file and add all of the numbers"""
+import useful
 
-def read_file():
-    """Takes the file and turns the characters into a list"""
-    
-    file = open("adventnums.txt", "r")
-    the_nums = file.readlines()
-    return the_nums
-    
-    
+"""Read txt file, add all of the numbers, and find the frequency that repeats."""
+
 def add_list(the_nums):
     """Takes a list of numbers and totals it while checking for a double frequency."""
     frequency_list = []
     total = 0
-    for group in the_nums:
-        if group[0] == '+':
-            total += int(group[1:])
-            frequency_list.append(total)
-            if (frequency_list.count(total) > 1):
-                print("there's a repeat")
-                return total
-        elif group[0] == '-':
-            total -= int(group[1:])
-            frequency_list.append(total)
-            if (frequency_list.count(total) > 1):
-                print ("there's a repeat")
-                return total
-    
-    the_nums.extend(the_nums)
-    return add_list(the_nums)
+    while(True):
+        for group in the_nums:
+            if group[0] == '+':
+                total += int(group[1:])
+                frequency_list.append(total)
+                if (frequency_list.count(total) > 1):
+                    return total
+            elif group[0] == '-':
+                total -= int(group[1:])
+                frequency_list.append(total)
+                if (frequency_list.count(total) > 1):
+                    return total
+        
             
-            
-num_list = read_file()
+num_list = useful.read_file("adventnums.txt")
 print(add_list(num_list))
