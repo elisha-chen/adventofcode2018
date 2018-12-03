@@ -2,7 +2,7 @@
 # Elisha Chen
 # 12/2/18
 
-"""Any useful functions"""
+"""Any useful functions."""
 
 def read_file(filename):
     """Takes the file and turns the characters into a list"""
